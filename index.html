@@ -459,6 +459,19 @@
     .float-call{ display:flex; }
   }
 
+  /* floating 2gis rating badge (mobile only) */
+  .float-rating{
+    display:none;
+    position:fixed; right:16px; bottom:84px; z-index:80;
+    border-radius:14px; overflow:hidden;
+    box-shadow:var(--shadow); background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .float-rating iframe{ display:block; }
+  @media (max-width:900px){
+    .float-rating{ display:block; }
+  }
+
   /* mobile nav drawer */
   .mobile-drawer{
     position:fixed; inset:0; background:var(--linen); z-index:100;
@@ -569,6 +582,9 @@
 </div>
 
 <a class="float-call" href="tel:+73532941551" aria-label="Позвонить в салон">📞</a>
+<div class="float-rating">
+  <iframe frameborder="0" width="150px" height="50px" loading="lazy" src="https://widget.2gis.ru/api/widget?org_id=70000001111491005&branch_id=70000001111491006&size=medium&theme=light"></iframe>
+</div>
 
 <div id="top"></div>
 
@@ -889,6 +905,9 @@
     </div>
     <div class="reviews-widget">
       <iframe id="big_light_70000001111491006" frameborder="0" width="100%" height="824" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a class="btn ghost" href="https://yandex.ru/maps/org/66034764895/reviews/?add-review=true" target="_blank" rel="noopener">Оставить отзыв на Яндекс.Картах</a>
     </div>
     <script>
       (function(){
