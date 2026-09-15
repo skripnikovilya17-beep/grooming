@@ -9,6 +9,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112683585', 'ym');
+
+    ym(112683585, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112683585" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <style>
   :root{
     --linen: #F5EFE2;
@@ -458,6 +471,45 @@
     font-size:24px; padding:14px 0; border-bottom:1px solid var(--line);
   }
   .close-x{ background:none; border:none; font-size:28px; cursor:pointer; color:var(--ink); }
+
+  /* ---------- lightbox ---------- */
+  .gallery-item{ cursor:zoom-in; }
+  .lightbox{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(20,17,13,0.92);
+    display:none; align-items:center; justify-content:center;
+    padding:32px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{
+    max-width:min(920px, 100%); max-height:88vh;
+    width:auto; height:auto; object-fit:contain;
+    border-radius:16px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .lightbox-close{
+    position:absolute; top:20px; right:24px;
+    background:rgba(251,247,238,0.12); border:1px solid rgba(251,247,238,0.35);
+    color:var(--paper); width:44px; height:44px; border-radius:50%;
+    font-size:22px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-close:hover{ background:rgba(251,247,238,0.24); }
+  .lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(251,247,238,0.12); border:1px solid rgba(251,247,238,0.35);
+    color:var(--paper); width:48px; height:48px; border-radius:50%;
+    font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-nav:hover{ background:rgba(251,247,238,0.24); }
+  .lightbox-prev{ left:20px; }
+  .lightbox-next{ right:20px; }
+  @media (max-width:640px){
+    .lightbox{ padding:16px; }
+    .lightbox-close{ top:12px; right:12px; width:38px; height:38px; font-size:18px; }
+    .lightbox-nav{ width:40px; height:40px; font-size:16px; }
+    .lightbox-prev{ left:8px; }
+    .lightbox-next{ right:8px; }
+  }
 </style>
 	<meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
@@ -611,14 +663,14 @@
       <p>Немного тех, кто уже приходил к нам и уходил довольным (ну, почти всегда без возражений).</p>
     </div>
     <div class="gallery-grid">
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2174.jpg" alt="Корги после груминга"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_4699.jpg" alt="Собака во время мытья"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2794.jpg" alt="Йоркширский терьер после стрижки"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2236.jpg" alt="Шпиц после груминга"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_3876.jpg" alt="Померанский шпиц"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2098.jpg" alt="Пекинес после стрижки"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2084.jpg" alt="Той-пудель с бантиком"></div></a>
-      <a href="#gallery"><div class="gallery-item"><img src="images/IMG_2820.jpg" alt="Спаниель на столе для груминга"></div></a>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2174.jpg" alt="Корги после груминга" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_4699.jpg" alt="Собака во время мытья" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2794.jpg" alt="Йоркширский терьер после стрижки" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2236.jpg" alt="Шпиц после груминга" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_3876.jpg" alt="Померанский шпиц" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2098.jpg" alt="Пекинес после стрижки" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2084.jpg" alt="Той-пудель с бантиком" loading="lazy"></div>
+      <div class="gallery-item" data-lightbox tabindex="0" role="button" aria-label="Открыть фото"><img src="images/IMG_2820.jpg" alt="Спаниель на столе для груминга" loading="lazy"></div>
     </div>
 
     <div class="section-head" style="margin-top:56px">
@@ -629,8 +681,8 @@
       <div class="ba-slides">
         <div class="ba-card active">
           <div class="ba-stage">
-            <img src="images/before-after-1-after.jpg" alt="После груминга">
-            <div class="ba-before-wrap"><img src="images/before-after-1-before.jpg" alt="До груминга"></div>
+            <img src="images/before-after-1-after.jpg" alt="После груминга" loading="lazy">
+            <div class="ba-before-wrap"><img src="images/before-after-1-before.jpg" alt="До груминга" loading="lazy"></div>
             <span class="ba-tag before">До</span>
             <span class="ba-tag after">После</span>
             <div class="ba-handle"></div>
@@ -639,8 +691,8 @@
         </div>
         <div class="ba-card">
           <div class="ba-stage">
-            <img src="images/before-after-2-after.jpg" alt="После груминга">
-            <div class="ba-before-wrap"><img src="images/before-after-2-before.jpg" alt="До груминга"></div>
+            <img src="images/before-after-2-after.jpg" alt="После груминга" loading="lazy">
+            <div class="ba-before-wrap"><img src="images/before-after-2-before.jpg" alt="До груминга" loading="lazy"></div>
             <span class="ba-tag before">До</span>
             <span class="ba-tag after">После</span>
             <div class="ba-handle"></div>
@@ -649,8 +701,8 @@
         </div>
         <div class="ba-card">
           <div class="ba-stage">
-            <img src="images/before-after-3-after.jpg" alt="После груминга">
-            <div class="ba-before-wrap"><img src="images/before-after-3-before.jpg" alt="До груминга"></div>
+            <img src="images/before-after-3-after.jpg" alt="После груминга" loading="lazy">
+            <div class="ba-before-wrap"><img src="images/before-after-3-before.jpg" alt="До груминга" loading="lazy"></div>
             <span class="ba-tag before">До</span>
             <span class="ba-tag after">После</span>
             <div class="ba-handle"></div>
@@ -779,8 +831,8 @@
 <section class="salon" id="salon">
   <div class="wrap salon-grid">
     <div class="salon-photos">
-      <div class="p1"><img src="images/grooming_room.jpg" alt="Рабочее место грумера в салоне Джек"></div>
-      <div class="p2"><img src="images/interior_waiting.jpg" alt="Уютная зона ожидания"></div>
+      <div class="p1"><img src="images/grooming_room.jpg" alt="Рабочее место грумера в салоне Джек" loading="lazy"></div>
+      <div class="p2"><img src="images/interior_waiting.jpg" alt="Уютная зона ожидания" loading="lazy"></div>
     </div>
     <div class="salon-text">
       <h2>Пока хвостик наводит красоту</h2>
@@ -802,25 +854,25 @@
       <p>Все руки, которые касаются вашего питомца в «Джеке» — с любовью к делу и терпением к самым вертлявым клиентам.</p>
     </div>
     <div class="team-intro">
-      <div class="team-photo"><img src="images/IMG_4539.jpg" alt="Мастер салона Джек с йоркширским терьером"></div>
+      <div class="team-photo"><img src="images/IMG_4539.jpg" alt="Мастер салона Джек с йоркширским терьером" loading="lazy"></div>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar"><img src="images/team_masha.jpg" alt="Маша, грумер салона Джек"></div>
+          <div class="team-avatar"><img src="images/team_masha.jpg" alt="Маша, грумер салона Джек" loading="lazy"></div>
           <h3>Маша</h3>
           <p>Грумер</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar"><img src="images/team_vika.jpg" alt="Вика, грумер салона Джек"></div>
+          <div class="team-avatar"><img src="images/team_vika.jpg" alt="Вика, грумер салона Джек" loading="lazy"></div>
           <h3>Вика</h3>
           <p>Грумер</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar"><img src="images/team_angelina.jpg" alt="Ангелина, помощник грумера салона Джек"></div>
+          <div class="team-avatar"><img src="images/team_angelina.jpg" alt="Ангелина, помощник грумера салона Джек" loading="lazy"></div>
           <h3>Ангелина</h3>
           <p>Помощник грумера</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar"><img src="images/team_liza.jpg" alt="Елизавета, помощник грумера салона Джек"></div>
+          <div class="team-avatar"><img src="images/team_liza.jpg" alt="Елизавета, помощник грумера салона Джек" loading="lazy"></div>
           <h3>Елизавета</h3>
           <p>Помощник грумера</p>
         </div>
@@ -837,8 +889,33 @@
     </div>
     <div class="reviews-widget">
       <iframe id="big_light_70000001111491006" frameborder="0" width="100%" height="824" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
-      <script type="text/javascript">((r,u)=>{const l=document.getElementById(r);l.contentWindow.document.open(),l.contentWindow.document.write(decodeURIComponent(escape(atob(u)))),l.contentWindow.document.close()})("big_light_70000001111491006", "PGhlYWQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgd2luZG93Ll9fc2l6ZV9fPSdiaWcnOwogICAgd2luZG93Ll9fdGhlbWVfXz0nbGlnaHQnOwogICAgd2luZG93Ll9fYnJhbmNoSWRfXz0nNzAwMDAwMDExMTE0OTEwMDYnCiAgICB3aW5kb3cuX19vcmdJZF9fPSc3MDAwMDAwMTExMTQ5MTAwNScKICAgPC9zY3JpcHQ+PHNjcmlwdCBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiB0eXBlPSJtb2R1bGUiIHNyYz0iaHR0cHM6Ly9kaXNrLjJnaXMuY29tL3dpZGdldC1jb25zdHJ1Y3Rvci9hc3NldHMvaWZyYW1lLmpzIj48L3NjcmlwdD48bGluayByZWw9Im1vZHVsZXByZWxvYWQiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiIGhyZWY9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2RlZmF1bHRzLmpzIj48bGluayByZWw9InN0eWxlc2hlZXQiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiIGhyZWY9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2RlZmF1bHRzLmNzcyI+PC9oZWFkPjxib2R5PjxkaXYgaWQ9ImlmcmFtZSI+PC9kaXY+PC9ib2R5Pg==")</script>
     </div>
+    <script>
+      (function(){
+        function loadReviewsWidget(){
+          const l = document.getElementById('big_light_70000001111491006');
+          const u = "PGhlYWQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgd2luZG93Ll9fc2l6ZV9fPSdiaWcnOwogICAgd2luZG93Ll9fdGhlbWVfXz0nbGlnaHQnOwogICAgd2luZG93Ll9fYnJhbmNoSWRfXz0nNzAwMDAwMDExMTE0OTEwMDYnCiAgICB3aW5kb3cuX19vcmdJZF9fPSc3MDAwMDAwMTExMTQ5MTAwNScKICAgPC9zY3JpcHQ+PHNjcmlwdCBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiB0eXBlPSJtb2R1bGUiIHNyYz0iaHR0cHM6Ly9kaXNrLjJnaXMuY29tL3dpZGdldC1jb25zdHJ1Y3Rvci9hc3NldHMvaWZyYW1lLmpzIj48L3NjcmlwdD48bGluayByZWw9Im1vZHVsZXByZWxvYWQiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiIGhyZWY9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2RlZmF1bHRzLmpzIj48bGluayByZWw9InN0eWxlc2hlZXQiIGNyb3Nzb3JpZ2luPSJhbm9ueW1vdXMiIGhyZWY9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2RlZmF1bHRzLmNzcyI+PC9oZWFkPjxib2R5PjxkaXYgaWQ9ImlmcmFtZSI+PC9kaXY+PC9ib2R5Pg==";
+          l.contentWindow.document.open();
+          l.contentWindow.document.write(decodeURIComponent(escape(atob(u))));
+          l.contentWindow.document.close();
+        }
+        const target = document.querySelector('.reviews-widget');
+        if (!target) return;
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                loadReviewsWidget();
+                observer.disconnect();
+              }
+            });
+          }, { rootMargin: '200px' });
+          observer.observe(target);
+        } else {
+          loadReviewsWidget();
+        }
+      })();
+    </script>
   </div>
 </section>
 
@@ -879,10 +956,17 @@
       <a class="btn" href="https://dikidi.ru/2008828" target="_blank" rel="noopener">Записаться онлайн</a>
     </div>
     <div class="map-embed">
-      <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=66034764895" width="560" height="400" frameborder="0"></iframe>
+      <iframe loading="lazy" src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=66034764895" width="560" height="400" frameborder="0"></iframe>
     </div>
 	</div>
 </section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Предыдущее фото">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Следующее фото">›</button>
+</div>
 
 <footer>
   <div class="wrap">
@@ -1000,6 +1084,65 @@
       document.querySelector('.price-panel[data-panel="'+tab.dataset.tab+'"]').classList.add('active');
     });
   });
+</script>
+
+<script>
+  (function(){
+    const items = Array.from(document.querySelectorAll('.gallery-item[data-lightbox]'));
+    if(!items.length) return;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const btnClose = document.getElementById('lightboxClose');
+    const btnPrev = document.getElementById('lightboxPrev');
+    const btnNext = document.getElementById('lightboxNext');
+    let idx = 0;
+
+    function show(i){
+      idx = (i + items.length) % items.length;
+      const img = items[idx].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+    }
+    function open(i){
+      show(i);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    items.forEach((item, i)=>{
+      item.addEventListener('click', ()=> open(i));
+      item.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(i); }
+      });
+    });
+
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', ()=> show(idx - 1));
+    btnNext.addEventListener('click', ()=> show(idx + 1));
+    lightbox.addEventListener('click', (e)=>{
+      if(e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape') close();
+      if(e.key === 'ArrowLeft') show(idx - 1);
+      if(e.key === 'ArrowRight') show(idx + 1);
+    });
+
+    // swipe support for mobile
+    let touchStartX = null;
+    lightbox.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; });
+    lightbox.addEventListener('touchend', (e)=>{
+      if(touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(dx) > 40){ dx > 0 ? show(idx - 1) : show(idx + 1); }
+      touchStartX = null;
+    });
+  })();
 </script>
 
 </body>
