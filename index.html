@@ -446,31 +446,29 @@
     footer .foot-bottom{ flex-direction:column; gap:8px; }
   }
 
-  /* floating call button (mobile) */
-  .float-call{
+  /* floating call button + 2gis rating badge (mobile only) — shown in one row */
+  .mobile-float-bar{
     display:none;
     position:fixed; right:16px; bottom:16px; z-index:80;
-    width:56px; height:56px; border-radius:50%;
-    background:var(--mustard-deep); color:var(--paper);
-    align-items:center; justify-content:center;
-    box-shadow:var(--shadow); text-decoration:none; font-size:22px;
+    align-items:center; gap:10px;
   }
   @media (max-width:900px){
-    .float-call{ display:flex; }
+    .mobile-float-bar{ display:flex; }
   }
-
-  /* floating 2gis rating badge (mobile only) */
+  .float-call{
+    flex:0 0 auto;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--sage-deep); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow); text-decoration:none; font-size:22px;
+  }
   .float-rating{
-    display:none;
-    position:fixed; right:16px; bottom:84px; z-index:80;
+    flex:0 0 auto;
     border-radius:14px; overflow:hidden;
     box-shadow:var(--shadow); background:var(--paper);
     border:1px solid var(--line);
   }
   .float-rating iframe{ display:block; }
-  @media (max-width:900px){
-    .float-rating{ display:block; }
-  }
 
   /* mobile nav drawer */
   .mobile-drawer{
@@ -581,9 +579,11 @@
   <a href="tel:+73532941551" style="margin-top:20px;color:var(--mustard-deep)">+7 (3532) 94-15-51</a>
 </div>
 
-<a class="float-call" href="tel:+73532941551" aria-label="Позвонить в салон">📞</a>
-<div class="float-rating">
-  <iframe frameborder="0" width="150px" height="50px" loading="lazy" src="https://widget.2gis.ru/api/widget?org_id=70000001111491005&branch_id=70000001111491006&size=medium&theme=light"></iframe>
+<div class="mobile-float-bar">
+  <div class="float-rating">
+    <iframe frameborder="0" width="150px" height="50px" loading="lazy" src="https://widget.2gis.ru/api/widget?org_id=70000001111491005&branch_id=70000001111491006&size=medium&theme=light"></iframe>
+  </div>
+  <a class="float-call" href="tel:+73532941551" aria-label="Позвонить в салон">📞</a>
 </div>
 
 <div id="top"></div>
